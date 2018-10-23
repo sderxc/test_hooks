@@ -12,8 +12,7 @@ commit_website_files() {
 }
 
 upload_files() {
-  git remote add origin https:/${GH_TOKEN}/github.com/sderxc/test_hooks.git
-  git push --quiet --set-upstream origin release
+  git push origin HEAD
 }
 
 setup_git
