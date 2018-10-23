@@ -8,6 +8,8 @@ install:
   - npm i
 script:
   - npm start
+after_success:
+- .travis/push.sh
 
 branches:
   only:
