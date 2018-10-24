@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js",
+    "deploy": "rsync -arv build raccon@eva02.htmlacademy.ru:/usr/www/test",
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\""
   },
   "repository": {

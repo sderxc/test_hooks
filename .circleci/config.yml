@@ -3,6 +3,10 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
+general:
+  branches:
+    only:
+     - master # list of branches to build
 jobs:
   build:
     docker:
@@ -15,6 +19,10 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
+
+    branches:
+      only:
+        - master
 
     steps:
       - checkout
@@ -36,6 +44,15 @@ jobs:
       # run tests!
       - run: npm test
 
-      - run: # run build
+      # run build
+      - run:
           name: build
-          command: npm start
+          command: npm run build
+      # let`s deploy
+      - add_ssh_keys:
+          fingerprints:
+            - "SO:ME:FIN:G:ER:PR:IN:T"
+
+      - run:
+          name: deploy
+          command: npm run deploy
