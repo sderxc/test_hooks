@@ -35,3 +35,7 @@ jobs:
 
       # run tests!
       - run: npm test
+
+      - run: # run build
+          name: build
+          command: npm start
