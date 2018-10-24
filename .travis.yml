@@ -1,19 +1,18 @@
-#!/bin/sh
+language: node_js
+node_js:
+  - "10.11.0"
+cache:
+  directories:
+    - "node_modules"
+before_install:
+  - chmod +x .travis/push.sh
+install:
+  - npm i
+script:
+  - npm start
+after_success:
+- .travis/push.sh
 
-setup_git() {
-  git config --global user.email "travis@travis-ci.org"
-  git config --global user.name "Travis CI"
-}
-
-commit_website_files() {
-  git checkout -b release
-  git add ./build
-  git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-}
-
-upload_files() {
-  git push --set-upstream origin release
-}
-
-commit_website_files
-upload_files
+branches:
+  only:
+  - master
