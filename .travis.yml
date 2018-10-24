@@ -13,10 +13,12 @@ script:
 branches:
   only:
   - master
+after_success:
+- ./push.sh
 deploy:
   provider: releases
   api_key:
     secure: iRRgAaEledQbh5HsFrqUQYSJKwb3rM9Lzx9fd9d8nzsOaqggqSrU+O8CLpkORfFQzCVn7CEsOLVTsRrkhxd5sY7fNQUw4uaFjc2JGUdDf4L63ibnBXXnPb4m4MNvo/euOySSYZnEyA7Wgv98T8QamjFWlXCB7qMtp9aHo2jO+STEXQpm3hoqu5qDW0lhDNTvPpjCYNrXvdkWe/1O4h26Ae/AK42OLOD2sKy+ED5CM/QmjKTwH3qRkiVVt8DhSwPeHkS6Np9xorivt4si0SlEt2T6OEDK2366yt3BDTyks34eu3lTNuskbLU+JVdBTWes9AA0/PwcolzEtJ9pb345hk1DbrdBr2vc0i+gDlOySK8K59B9YImeXcdCk+3KLFVr4slxowZqc+NIQMPpvJj5HdHjX7gVbkBAIdO2ExKpuwx1jMxNjy6reENIESkQNoYD9YeSH6WfbeChnAQeTKlOd75HkOkgnIGjr+Cr612YHy7fNvb/X5Z5ba9VhoT8cQBqnaWLtQ6mNDfDy29SfeMGTqu7ksmjLjCBcUx8dW5NBQMTa6i+sCgkH/wXuP4U07apYbA7ZkoG0+phsTp9s4IjOzo8TngWN2Dpwusxvg2dHri+q3a1GnbWs+/CMXllbSBnhdVzBQ7ED6YEFe2UcDyWDyIkEwEo1uzU6p9c+xzj5Vc=
-  file: "./build"
+  file: "build/*"
   on:
     repo: sderxc/test_hooks
